@@ -64,13 +64,13 @@ router.post("/add", async (req, res) => {
 	  const useremail = user.email;
 	  User.findOne({ email: useremail })
 		 .then((data) => {
-			res.json({ status: "ok", data: data.markers });
+			return res.json({ status: "ok", data: data.markers });
 		 })
 		 .catch((error) => {
-			res.json({ status: "error", data: error });
+			return res.json({ status: "error", data: error });
 		 });
 	} catch (error) {
-	  res.json({ status: "error", error: error });
+	  return res.json({ status: "error", error: error });
 	}
  });
 
@@ -96,13 +96,13 @@ router.post("/add", async (req, res) => {
 		 }
 	  )
 		 .then((data) => {
-			res.json({ status: "ok", data: data });
+			return res.json({ status: "ok", data: data });
 		 })
 		 .catch((error) => {
-			res.json({ status: "error", data: error });
+			return res.json({ status: "error", data: error });
 		 });
 	} catch (error) {
-	  res.json({ status: "error", message: error });
+	  return res.json({ status: "error", message: error });
 	}
  });
 

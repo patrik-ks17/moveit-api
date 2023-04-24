@@ -47,19 +47,19 @@ router.post("/all", async (req, res) => {
 			return res.json({ status: "error", data: "token expired" });
 		}
 		if (!user) {
-			res.json({ status: "error", error: "Invalid User" });
+			return res.json({ status: "error", error: "Invalid User" });
 		}
 		User.collection
 			.find()
 			.toArray()
 			.then((data) => {
-				res.json({ status: "ok", data: data });
+				return res.json({ status: "ok", data: data });
 			})
 			.catch((error) => {
-				res.json({ status: "error", data: error });
+				return res.json({ status: "error", data: error });
 			});
 	} catch (error) {
-		res.json({ status: "error", error: error });
+		return res.json({ status: "error", error: error });
 	}
 });
 
@@ -103,9 +103,9 @@ router.put("/edit", async (req, res) => {
 				}
 			}
 		)
-		res.json({ status: "ok" });
+		return res.json({ status: "ok" });
 	} catch (error) {
-		res.json({ status: "error" });
+		return res.json({ status: "error" });
 	}
 });
 
@@ -136,9 +136,9 @@ router.put("/usertype", async (req, res) => {
 				$set: { usertype: setUsertype }
 			}
 		)
-		res.json({ status: "ok" });
+		return res.json({ status: "ok" });
 	} catch (error) {
-		res.json({ status: "error" });
+		return res.json({ status: "error" });
 	}
 });
 
@@ -165,9 +165,9 @@ router.delete("/delete", async (req, res) => {
 				email: email
 			}
 		)
-		res.json({ status: "ok" });
+		return res.json({ status: "ok" });
 	} catch (error) {
-		res.json({ status: "error" });
+		return res.json({ status: "error" });
 	}
 });
 

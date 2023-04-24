@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
 		 return res.json({ error: "error" });
 	  }
 	}
-	res.json({ status: "error", error: "Invalid password" });
+	return res.json({ status: "error", error: "Invalid password" });
  });
 
  module.exports = router;

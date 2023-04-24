@@ -35,9 +35,9 @@ router.post("/", async (req, res) => {
 			usertype: "user",
 		});
 
-		res.json({ status: "ok" });
+		return res.json({ status: "ok" });
 	} catch (error) {
-		res.json({ status: "error" });
+		return res.json({ status: "error" });
 	}
 });
 

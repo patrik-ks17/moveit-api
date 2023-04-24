@@ -23,13 +23,13 @@ router.post("/get", async (req, res) => {
 	  const useremail = user.email;
 	  User.findOne({ email: useremail })
 		 .then((data) => {
-			res.json({ status: "ok", data: data.profile });
+			return res.json({ status: "ok", data: data.profile });
 		 })
 		 .catch((error) => {
-			res.json({ status: "error", data: error });
+			return res.json({ status: "error", data: error });
 		 });
 	} catch (error) {
-	  res.json({ status: "error", error: error });
+	  return res.json({ status: "error", error: error });
 	}
  });
 
@@ -50,9 +50,9 @@ router.put("/edit", async (req, res) => {
 			$set: { profile: profileInfo }
 		 }
 	  )
-	  res.json({ status: "ok" });
+	  return res.json({ status: "ok" });
 	} catch (error) {
-	  res.json({ status: "error" });
+	  return res.json({ status: "error" });
 	}
  });
 
